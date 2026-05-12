@@ -1,0 +1,24 @@
+.root {
+  height: 100%;
+}
+
+.inner {
+  height: 100%;
+}
+
+.col {
+  height: 100%;
+}
+
+.colInner {
+  border-width: 1px;
+  border-radius: var(--mantine-radius-md);
+  border-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  padding: 6px;
+}
+
+.threadCard {
+  font-size: larger;
+  padding-inline-start: 10px;
+}

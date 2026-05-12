@@ -1,0 +1,14 @@
+{
+    "PostDetails": {
+        "writeComment": "Write a comment...",
+        "post": "Post",
+        "reply": "Reply",
+        "edit": "Edit",
+        "delete": "Delete",
+        "loginRequired": "Please login to interact with comments.",
+        "viewReplies": "View replies",
+        "hideReplies": "Hide replies",
+        "save": "Save",
+        "cancel": "Cancel"
+    }
+}

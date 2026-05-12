@@ -1,0 +1,59 @@
+.parent {
+  flex-wrap: nowrap;
+  @media (max-width: $mantine-breakpoint-xs) {
+    flex-wrap: wrap;
+  }
+}
+
+.mainSection {
+  flex-grow: 1;
+  border-width: 1px;
+  border-radius: var(--mantine-radius-md);
+  border-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+}
+
+.side {
+  width: 15rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+  @media (max-width: $mantine-breakpoint-xs) {
+    margin-inline: auto;
+  }
+}
+
+.wideCards {
+  display: flex;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    display: none;
+  }
+}
+
+.squareCards {
+  display: none;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    display: flex;
+  }
+}
+
+.legend {
+  font-size: var(--mantine-font-size-md);
+  font-weight: 600;
+}
+
+.carousel {
+  flex-direction: row;
+
+  @mixin rtl {
+    flex-direction: row-reverse;
+  }
+}
+
+.control {
+  transform: none;
+  @mixin rtl {
+    transform: scale(-1, 1);
+  }
+}

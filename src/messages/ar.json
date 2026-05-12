@@ -1,0 +1,14 @@
+{
+    "PostDetails": {
+        "writeComment": "...اكتب تعليقًا",
+        "post": "نشر",
+        "reply": "رد",
+        "edit": "تعديل",
+        "delete": "حذف",
+        "loginRequired": "يرجى تسجيل الدخول للتفاعل مع التعليقات.",
+        "viewReplies": "عرض الردود",
+        "hideReplies": "إخفاء الردود",
+        "save": "حفظ",
+        "cancel": "الغاء"
+    }
+}

@@ -1,0 +1,13 @@
+.legend {
+  font-size: var(--mantine-font-size-md);
+  font-weight: 600;
+}
+
+.card {
+  border-width: 1px;
+  border-radius: var(--mantine-radius-md);
+  border-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  /* background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6)); */
+  background-color: var(--mantine-color-body);
+  overflow: hidden;
+}

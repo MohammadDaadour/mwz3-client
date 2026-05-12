@@ -1,0 +1,14 @@
+.container {
+  flex-direction: row;
+
+  @mixin rtl {
+    flex-direction: row-reverse;
+  }
+}
+
+.control {
+  transform: none;
+  @mixin rtl {
+    transform: scale(-1, 1);
+  }
+}

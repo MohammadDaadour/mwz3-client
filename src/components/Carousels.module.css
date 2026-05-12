@@ -1,0 +1,7 @@
+.container {
+  flex-direction: row;
+
+  @mixin rtl {
+    flex-direction: row-reverse;
+  }
+}
