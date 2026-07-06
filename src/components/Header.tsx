@@ -32,6 +32,7 @@ import {
   IconAnalyze,
   IconTimeline,
 } from "@tabler/icons-react";
+import { TbTransactionDollar } from "react-icons/tb";
 import { useDisclosure } from "@mantine/hooks";
 import { AppContext } from "@/providers";
 import { ThemeToggle } from "./ThemeToggle";
@@ -158,12 +159,6 @@ export function GlobalHeader({ headerLabels, drawerLabels, drawerData, auth }: H
                   <div className="h-6 border-l border-gray-300"></div>
                 </>
               )}
-              {/* <Link href={"/supermarket"}>
-              <Button>
-                سوبر ماركت
-              </Button>
-            </Link> */}
-              {/* <SupermarketButton /> */}
               <Link className="hidden md:inline-block" href={"/blog"}>
                 <Button className="bg-white text-black font-bold hover:bg-gray-100 hover:text-blue-900 transition-all duration-500" variant="subtle" size="compact-lg" fz='md'>المنتدي</Button>
               </Link>
@@ -171,30 +166,25 @@ export function GlobalHeader({ headerLabels, drawerLabels, drawerData, auth }: H
           </Group>
           <Button.Group>
             {/* <ThemeToggle /> */}
-            <Link className=" md:inline-block" href={"/contact"}>
+            {/* <Link className=" md:inline-block" href={"/contact"}>
               <Button className="mx-4 md:mx-2 bg-blue-900 text-white font-bold hover:bg-gray-100 hover:text-blue-900 transition-all duration-500" variant="subtle" size="compact-lg" fz='md'>
                 <IconPhone className="" />
               </Button>
+            </Link> */}
+
+
+
+            <Link className=" md:inline-block" href={"https://agent.mwz3.com"}>
+              <Button className="mx-4 md:mx-2 bg-blue-900 text-white font-bold hover:bg-gray-100 hover:text-blue-900 transition-all duration-500" variant="subtle" size="compact-lg" fz='md'>
+                <span className="hidden md:inline-block mx-2">بوابة الموزع </span>
+                <TbTransactionDollar className="" />
+              </Button>
             </Link>
 
-          </Button.Group>
 
-          {/* <Group visibleFrom='sm'>
-            <CountryMenu regions={headerLabels.regions} />
-            <form
-              onSubmit={(e) => {
-                e.preventDefault(), handleSearch();
-              }}
-            >
-              <TextInput
-                ref={searchRef}
-                placeholder={headerLabels.btnSearch}
-                rightSection={<IconSearch size={16} stroke={2} />}
-                size='sm'
-              />
-              <input type='submit' style={{ display: "none" }} />
-            </form>
-          </Group> */}
+
+
+          </Button.Group>
         </Group>
       </header>
 
