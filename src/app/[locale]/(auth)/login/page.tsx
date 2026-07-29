@@ -62,7 +62,7 @@ export default function LoginPage() {
       setSocialAreaError(t("errAreaRequired"));
       return;
     }
-    router.push(`/google?state=${socialArea}`);
+    window.location.href = `/google?state=${socialArea}`;
   }
 
   function handleFacebookClick() {
@@ -70,7 +70,7 @@ export default function LoginPage() {
       setSocialAreaError(t("errAreaRequired"));
       return;
     }
-    router.push(`/facebook?state=${socialArea}`);
+    window.location.href = `/facebook?state=${socialArea}`;
   }
 
   async function handleSubmit(values: typeof loginForm.values) {
