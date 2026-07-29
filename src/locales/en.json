@@ -97,7 +97,10 @@
     "passwordLabel": "Enter The New Password",
     "passwordConfirmationLabel": "Confirm The New Password",
     "msgPasswordResetSuccess": "Password has been reset successfully",
-    "errInvalidOrExpiredToken": "Invalid or expired link"
+    "errInvalidOrExpiredToken": "Invalid or expired link",
+    "lblAreaForSocial": "Select your region",
+    "phAreaForSocial": "Choose a region",
+    "errAreaRequired": "Please select a region before continuing"
   },
   "UserMenu": {
     "btnLogout": "Logout",

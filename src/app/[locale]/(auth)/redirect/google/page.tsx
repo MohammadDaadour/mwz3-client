@@ -6,18 +6,22 @@ import { useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
-export default function GoogleRedirect() {
+export default function GoogleRedirect() {  
   const t = useTranslations("Login");
   const router = useRouter();
   const searchParams = useSearchParams();
   const currentParam = searchParams?.get("code") ?? undefined;
 
-
+  console.log("CURRENT PARAMS : ", currentParam);
   async function handleLogin(token: string) {
     const res = await googleAuth(token);
     if (res === 200) {
       router.push("/");
       router.refresh();
+    }
+    else 
+    {
+      console.log("RESULT : ", res);
     }
   }
 

@@ -97,7 +97,10 @@
     "passwordLabel": "ادخل كلمة المرور الجديدة",
     "passwordConfirmationLabel": "ادخل تأكيد كلمة المرور الجديدة",
     "msgPasswordResetSuccess": "تم إعادة تعيين كلمة المرور بنجاح",
-    "errInvalidOrExpiredToken": "الرابط غير صالح أو منتهي الصلاحية"
+    "errInvalidOrExpiredToken": "الرابط غير صالح أو منتهي الصلاحية",
+    "lblAreaForSocial": "اختر منطقتك",
+    "phAreaForSocial": "اختر منطقة",
+    "errAreaRequired": "يرجى اختيار منطقة قبل المتابعة"
   },
   "UserMenu": {
     "btnLogout": "خروج",

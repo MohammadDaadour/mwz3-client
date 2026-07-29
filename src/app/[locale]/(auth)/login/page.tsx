@@ -13,6 +13,8 @@ import {
   Alert,
   Divider,
   LoadingOverlay,
+  Select,
+  ComboboxItem,
 } from "@mantine/core";
 import { modals } from "@mantine/modals";
 import { isEmail, isNotEmpty, useForm } from "@mantine/form";
@@ -21,14 +23,18 @@ import { useContext, useState } from "react";
 import { useTranslations } from "next-intl";
 import { AppContext } from "@/providers";
 import { loginAction } from "@/libs/actions";
+import { useLocale } from "next-intl";
 
 export default function LoginPage() {
   const context = useContext(AppContext);
   const t = useTranslations("Login");
   const router = useRouter();
   const path = usePathname();
+  const locale = useLocale();
   const [validateMsg, setValidateMsg] = useState(<></>);
   const [loading, setLoading] = useState(false);
+  const [socialArea, setSocialArea] = useState<string | null>(null);
+  const [socialAreaError, setSocialAreaError] = useState<string | null>(null);
 
   const loginForm = useForm({
     mode: "uncontrolled",
@@ -39,6 +45,33 @@ export default function LoginPage() {
       setValidateMsg(<></>);
     },
   });
+
+  const regions = [
+    { value: "3", label: locale === "en" ? "Egypt" : "مصر" },
+    { value: "1", label: locale === "en" ? "UAE" : "الإمارات" },
+    { value: "2", label: locale === "en" ? "KSA" : "السعودية" },
+  ];
+
+  function handleSocialAreaChange(value: string | null, _option: ComboboxItem) {
+    setSocialArea(value);
+    if (value) setSocialAreaError(null);
+  }
+
+  function handleGoogleClick() {
+    if (!socialArea) {
+      setSocialAreaError(t("errAreaRequired"));
+      return;
+    }
+    router.push(`/google?state=${socialArea}`);
+  }
+
+  function handleFacebookClick() {
+    if (!socialArea) {
+      setSocialAreaError(t("errAreaRequired"));
+      return;
+    }
+    router.push(`/facebook?state=${socialArea}`);
+  }
 
   async function handleSubmit(values: typeof loginForm.values) {
     setLoading(true);
@@ -87,12 +120,24 @@ export default function LoginPage() {
         {t("title")}
       </Text>
       <LoadingOverlay visible={loading} zIndex={400} loaderProps={{ type: "bars" }} overlayProps={{ blur: 1 }} />
+      <Select
+        id='social-area-select'
+        label={t("lblAreaForSocial")}
+        placeholder={t("phAreaForSocial")}
+        data={regions}
+        value={socialArea}
+        onChange={handleSocialAreaChange}
+        error={socialAreaError}
+        clearable={false}
+        mt='md'
+        withAsterisk
+      />
       <Group align='center' justify='space-around' my='md'>
-        <Button bg='blue' component={Link} href='/facebook'>
+        <Button id='btn-facebook-login' bg='blue' onClick={handleFacebookClick}>
           <Text pe={4}>{t("btnLoginWith")}</Text>
           <IconBrandFacebookFilled />
         </Button>
-        <Button bg='red' component={Link} href='/google'>
+        <Button id='btn-google-login' bg='red' onClick={handleGoogleClick}>
           <Text pe={4}>{t("btnLoginWith")}</Text>
           <IconBrandGoogleFilled />
         </Button>

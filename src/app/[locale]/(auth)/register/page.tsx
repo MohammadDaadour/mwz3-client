@@ -76,7 +76,6 @@ export default function RegisterPage({ params: { locale } }: props) {
     const { data, status } = await registerAction(payload);
 
 
-    // console.log('📦 Data being sent to registerAction:', values);
     if (status >= 400) {
       console.log(data.message)
       switch (data.message) {
