@@ -402,21 +402,21 @@ export async function facebookAuth(code: string) {
 //   console.log(res)
 // }
 
-export async function googleAuth(code: string) {
+export async function googleAuth(code: string, state?: string) {
   const { data, status } = await axios
-    .get(`${process.env.API_URL}/google/redirect?code=${code}`)
+    .get(`${process.env.API_URL}/google/redirect?code=${code}&state=${state ?? ""}`)
     .then((res) => res)
     .catch((err) => err.response);
 
-  if ((await status) === 200) {
+  if (status === 200) {
     cookies().set("Auth", data, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       maxAge: 60 * 60 * 24 * 30,
       path: "/",
     });
-    return status;
   }
+  return status; // always return it — success or failure — so the page can react
 }
 
 // export async function googleLogin() {
