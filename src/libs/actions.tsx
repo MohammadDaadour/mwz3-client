@@ -403,10 +403,16 @@ export async function facebookAuth(code: string) {
 // }
 
 export async function googleAuth(code: string, state?: string) {
+  console.log('GOOGLE AUTH CALLED — code:', code, 'state:', state);
   const { data, status } = await axios
     .get(`${process.env.API_URL}/google/redirect?code=${code}&state=${state ?? ""}`)
     .then((res) => res)
-    .catch((err) => err.response);
+    .catch((err) => {
+      console.log('GOOGLE AUTH AXIOS ERROR:', err.response?.status, err.response?.data);
+      return err.response;
+    });
+
+  console.log('GOOGLE AUTH RESPONSE:', status, data);
 
   if (status === 200) {
     cookies().set("Auth", data, {
@@ -416,7 +422,7 @@ export async function googleAuth(code: string, state?: string) {
       path: "/",
     });
   }
-  return status; // always return it — success or failure — so the page can react
+  return status;
 }
 
 // export async function googleLogin() {
